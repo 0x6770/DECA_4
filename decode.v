@@ -1,5 +1,5 @@
 module decode(
- input FTECH, EXEC1, EXEC2, EQ, MI,
+ input FETCH, EXEC1, EXEC2, EQ, MI,
  input [3:0] IR,
  output EXTRA,
  output Wren,
@@ -12,13 +12,23 @@ module decode(
 );
 
 
-assign EXTRA = (~IR[0] & ~IR[1] & ~IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2) + (~IR[0] & ~IR[1] & IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2) + (~IR[0] & ~IR[1] & IR[2] & IR[3] & ~FTECH & EXEC1 & ~EXEC2);
-assign Wren = (~IR[0] & ~IR[1] & ~IR[2] & IR[3] & ~FTECH & EXEC1 & ~EXEC2);
-assign MUX1 = (~IR[0] & ~IR[1] & ~IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2) + (~IR[0] & ~IR[1] & ~IR[2] & IR[3] & ~FTECH & EXEC1 & ~EXEC2) + (~IR[0] & ~IR[1] & IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2) + (~IR[0] & ~IR[1] & IR[2] & IR[3] & ~FTECH & EXEC1 & ~EXEC2);
-assign MUX3 = (~IR[0] & ~IR[1] & ~IR[2] & ~IR[3] & ~FTECH & ~EXEC1 & EXEC2) + (IR[0] & ~IR[1] & ~IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2);
-assign PC_sload = (~IR[0] & IR[1] & ~IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2) + (~IR[0] & IR[1] & ~IR[2] & IR[3] & ~FTECH & EXEC1 & ~EXEC2 & MI) + (~IR[0] & IR[1] & IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2 & EQ);
-assign PC_cnt_en = (~IR[0] & ~IR[1] & ~IR[2] & ~IR[3] & ~FTECH & ~EXEC1 & EXEC2) + (~IR[0] & ~IR[1] & ~IR[2] & IR[3] & ~FTECH & EXEC1 & ~EXEC2) + (~IR[0] & ~IR[1] & IR[2] & ~IR[3] & ~FTECH & ~EXEC1 & EXEC2) + (~IR[0] & ~IR[1] & IR[2] & IR[3] & ~FTECH & ~EXEC1 & EXEC2) + (~IR[0] & IR[1] & ~IR[2] & IR[3] & ~FTECH & EXEC1 & ~EXEC2 & ~MI) + (~IR[0] & IR[1] & IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2 & ~EQ & ~MI) + (IR[0] & ~IR[1] & ~IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2);
-assign ACC_EN = (~IR[0] & ~IR[1] & IR[2] & ~IR[3] & ~FTECH & ~EXEC1 & EXEC2) + (IR[0] & ~IR[1] & ~IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2);
-assign ACC_LOAD = (~IR[0] & ~IR[1] & IR[2] & ~IR[3] & ~FTECH & ~EXEC1 & EXEC2) + (IR[0] & ~IR[1] & ~IR[2] & ~IR[3] & ~FTECH & EXEC1 & ~EXEC2);
+assign LDA = !IR[0] & !IR[1] & !IR[2] & !IR[3];
+assign STA = IR[0] & !IR[1] & !IR[2] & !IR[3];
+assign ADD = !IR[0] & IR[1] & !IR[2] & !IR[3];
+assign SUB = IR[0] & IR[1] & !IR[2] & !IR[3];
+assign JMP = !IR[0] & !IR[1] & IR[2] & !IR[3];
+assign JMI = IR[0] & !IR[1] & IR[2] & !IR[3];
+assign JEQ = !IR[0] & IR[1] & IR[2] & !IR[3];
+assign STP = IR[0] & IR[1] & IR[2] & !IR[3];
+assign LDI = !IR[0] & !IR[1] & !IR[2] & IR[3];
+
+assign EXTRA = LDA & EXEC1 | ADD & EXEC1 | SUB & EXEC1;
+assign Wren = STA & EXEC1;
+assign MUX1 = LDA & EXEC1 | STA & EXEC1 | ADD & EXEC1 | SUB & EXEC1;
+assign MUX3 = LDA & EXEC2 | LDI & EXEC1;
+assign PC_sload = JMP & EXEC1 | JMI & EXEC1 & MI | JEQ & EXEC1 & EQ;
+assign PC_cnt_en = LDA & EXEC2 | STA & EXEC1 | ADD & EXEC2 | SUB & EXEC2 | JMI & EXEC1 & !MI | JEQ & EXEC1 & EQ | LDI & EXEC1;
+assign ACC_EN = 0;
+assign ACC_LOAD = 0;
 
 endmodule
