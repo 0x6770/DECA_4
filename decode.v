@@ -10,7 +10,8 @@ module decode(
  output ACC_EN,
  output ACC_LOAD,
  output ACC_SHIFTIN,
- output ADDSUB
+ output ADDSUB,
+ output MUX3_useAllBits
 );
 
 
@@ -34,5 +35,6 @@ assign ACC_EN = LDA & EXEC2 | ADD & EXEC2 | SUB & EXEC2 | LDI & EXEC1;
 assign ACC_LOAD = LDA & EXEC2 | ADD & EXEC2 | SUB & EXEC2 | LDI & EXEC1;
 assign ADDSUB = ADD & EXEC2;
 assign ACC_SHIFTIN = 0;
+assign MUX3_useAllBits = LDA & EXEC2;
 
 endmodule

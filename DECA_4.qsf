@@ -38,7 +38,7 @@
 
 set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CGXFC7C7F23C8
-set_global_assignment -name TOP_LEVEL_ENTITY MU0
+set_global_assignment -name TOP_LEVEL_ENTITY data_path
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 18.1.0
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "12:52:17  JANUARY 27, 2020"
 set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Standard Edition"
@@ -54,18 +54,18 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_global_assignment -name MIF_FILE test2.mif
 set_global_assignment -name MIF_FILE test.mif
 set_global_assignment -name QIP_FILE ram.qip
-set_global_assignment -name BDF_FILE control_path.bdf
 set_global_assignment -name VERILOG_FILE state_machine.v
 set_global_assignment -name VERILOG_FILE decode.v
 set_global_assignment -name BDF_FILE DFF_3.bdf
 set_global_assignment -name BDF_FILE control_path2.bdf
-set_global_assignment -name BDF_FILE control_path2_backup.bdf
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name BDF_FILE data_path.bdf
 set_global_assignment -name VERILOG_FILE addzero.v
 set_global_assignment -name BDF_FILE MU0.bdf
 set_global_assignment -name VERILOG_FILE EQMI.v
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform2.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform3.vwf
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
