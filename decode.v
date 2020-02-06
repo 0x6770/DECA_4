@@ -14,16 +14,15 @@ module decode(
  output MUX3_useAllBits
 );
 
-
-assign LDA = !IR[0] & !IR[1] & !IR[2] & !IR[3];
-assign STA = IR[0] & !IR[1] & !IR[2] & !IR[3];
-assign ADD = !IR[0] & IR[1] & !IR[2] & !IR[3];
-assign SUB = IR[0] & IR[1] & !IR[2] & !IR[3];
-assign JMP = !IR[0] & !IR[1] & IR[2] & !IR[3];
-assign JMI = IR[0] & !IR[1] & IR[2] & !IR[3];
-assign JEQ = !IR[0] & IR[1] & IR[2] & !IR[3];
-assign STP = IR[0] & IR[1] & IR[2] & !IR[3];
-assign LDI = !IR[0] & !IR[1] & !IR[2] & IR[3];
+assign LDA = !IR[3] & !IR[2] & !IR[1] & !IR[0];
+assign STA = !IR[3] & !IR[2] & !IR[1] & IR[0];
+assign ADD = !IR[3] & !IR[2] & IR[1] & !IR[0];
+assign SUB = !IR[3] & !IR[2] & IR[1] & IR[0];
+assign JMP = !IR[3] & IR[2] & !IR[1] & !IR[0];
+assign JMI = !IR[3] & IR[2] & !IR[1] & IR[0];
+assign JEQ = !IR[3] & IR[2] & IR[1] & !IR[0];
+assign STP = !IR[3] & IR[2] & IR[1] & IR[0];
+assign LDI = IR[3] & !IR[2] & !IR[1] & !IR[0];
 
 assign EXTRA = LDA & EXEC1 | ADD & EXEC1 | SUB & EXEC1;
 assign Wren = STA & EXEC1;
