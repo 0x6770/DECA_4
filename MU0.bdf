@@ -227,6 +227,38 @@ refer to the applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 )
+(pin
+	(output)
+	(rect 1032 176 1208 192)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "MI" (rect 90 0 102 11)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 1032 192 1208 208)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "EQ" (rect 90 0 105 13)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
 (symbol
 	(rect 752 136 984 328)
 	(text "data_path" (rect 5 0 66 15)(font "Intel Clear" (font_size 8)))
@@ -478,14 +510,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 984 200)
-	(pt 1000 200)
-)
-(connector
-	(pt 984 184)
-	(pt 1016 184)
-)
-(connector
 	(pt 736 200)
 	(pt 752 200)
 )
@@ -715,6 +739,24 @@ refer to the applicable agreement for further details.
 	(pt 240 96)
 	(bus)
 )
+(connector
+	(pt 984 184)
+	(pt 1016 184)
+)
+(connector
+	(pt 1016 184)
+	(pt 1032 184)
+)
+(connector
+	(pt 984 200)
+	(pt 1000 200)
+)
+(connector
+	(pt 1000 200)
+	(pt 1032 200)
+)
 (junction (pt 736 248))
 (junction (pt 224 120))
 (junction (pt 520 96))
+(junction (pt 1016 184))
+(junction (pt 1000 200))
