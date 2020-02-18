@@ -259,6 +259,22 @@ refer to the applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 )
+(pin
+	(output)
+	(rect 536 416 712 432)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "pipeline_state" (rect 90 0 160 11)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
 (symbol
 	(rect 752 136 984 328)
 	(text "data_path" (rect 5 0 66 15)(font "Intel Clear" (font_size 8)))
@@ -494,6 +510,13 @@ refer to the applicable agreement for further details.
 		(text "MUX3_useAllBits" (rect 0 0 103 15)(font "Intel Clear" (font_size 8)))
 		(text "MUX3_useAllBits" (rect 116 267 219 282)(font "Intel Clear" (font_size 8)))
 		(line (pt 240 272)(pt 224 272))
+	)
+	(port
+		(pt 240 288)
+		(output)
+		(text "pipeline_state" (rect 0 0 89 15)(font "Intel Clear" (font_size 8)))
+		(text "pipeline_state" (rect 130 283 219 298)(font "Intel Clear" (font_size 8)))
+		(line (pt 240 288)(pt 224 288))
 	)
 	(drawing
 		(rectangle (rect 16 16 224 304))
@@ -754,6 +777,10 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 1000 200)
 	(pt 1032 200)
+)
+(connector
+	(pt 512 424)
+	(pt 536 424)
 )
 (junction (pt 736 248))
 (junction (pt 224 120))

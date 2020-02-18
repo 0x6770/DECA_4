@@ -61,9 +61,16 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 112)
 		(input)
+		(text "clk" (rect 0 0 10 12)(font "Arial" ))
+		(text "clk" (rect 21 107 31 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
 		(text "IR[3..0]" (rect 0 0 30 12)(font "Arial" ))
-		(text "IR[3..0]" (rect 21 107 51 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112)(line_width 3))
+		(text "IR[3..0]" (rect 21 123 51 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port
 		(pt 208 32)

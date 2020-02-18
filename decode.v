@@ -30,7 +30,6 @@ module decode(input FETCH,             // first cycle of state machine
     assign ASR = IR[3] & !IR[2] & IR[1] & IR[0];
     // assign pipeline related var
     assign canPipeline = LDA & EXEC2 | LDI & EXEC1 | ADD & EXEC2 | SUB & EXEC2 | LSR & EXEC1 | ASR & EXEC1;
-    assign BeenPipelined;
     // instantiate 1-bit DFF for pipeline state
     RisingEdge_DFF pipelineState(
     .D (canPipeline),
@@ -43,20 +42,20 @@ module decode(input FETCH,             // first cycle of state machine
     assign MUX1            = LDA & EXEC1 | STA & EXEC1 | ADD & EXEC1 | SUB & EXEC1;
     assign MUX3            = LDA & EXEC2 | LDI & EXEC1;
     assign PC_sload        = JMP & EXEC1 | JMI & EXEC1 & MI | JEQ & EXEC1 & EQ;
-    assign PC_cnt_en       = LDA & EXEC2 | STA & EXEC1 | ADD & EXEC2 | SUB & EXEC2 | JMI & EXEC1 & !MI | JEQ & EXEC1 & !EQ | LDI & EXEC1 | LSR & EXEC1 | ASR & EXEC1 | pipeline;
+    assign PC_cnt_en       = LDA & EXEC2 | STA & EXEC1 | ADD & EXEC2 | SUB & EXEC2 | JMI & EXEC1 & !MI | JEQ & EXEC1 & !EQ | LDI & EXEC1 | LSR & EXEC1 | ASR & EXEC1;
     assign ACC_EN          = LDA & EXEC2 | ADD & EXEC2 | SUB & EXEC2 | LDI & EXEC1 | LSR & EXEC1 | ASR & EXEC1;
     assign ACC_LOAD        = LDA & EXEC2 | ADD & EXEC2 | SUB & EXEC2 | LDI & EXEC1;
     assign ADDSUB          = ADD & EXEC2;
     // assign ACC_SHIFTIN  = LSR & EXEC1;
     assign ACC_SHIFTIN     = ASR & EXEC1 & MI;
     // assign ACC_SHIFTIN  = 0;
-    assign MUX3_useAllBits = LDA & EXEC2 | LDA & EXEC2 | LSR & EXEC1 | ASR & EXEC1;
+    assign MUX3_useAllBits = LDA & EXEC2 | LSR & EXEC1 | ASR & EXEC1;
 endmodule
     // Verilog code for D Flip FLop
     module RisingEdge_DFF(D,clk,Q);
         input D; // Data input
         input clk; // clock input
-        output Q; // output Q
+        output reg Q; // output Q
         always @(posedge clk)
         begin
             Q <= D;

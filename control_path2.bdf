@@ -359,6 +359,22 @@ refer to the applicable agreement for further details.
 		(line (pt 78 12)(pt 82 8))
 	)
 )
+(pin
+	(output)
+	(rect 936 496 1112 512)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "pipeline_state" (rect 90 0 160 11)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
 (symbol
 	(rect 728 632 904 776)
 	(text "LPM_FF" (rect 19 0 78 16)(font "Arial" (font_size 10)))
@@ -950,9 +966,16 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 112)
 		(input)
+		(text "clk" (rect 0 0 15 11)(font "Arial" ))
+		(text "clk" (rect 21 107 36 118)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112))
+	)
+	(port
+		(pt 0 128)
+		(input)
 		(text "IR[3..0]" (rect 0 0 37 11)(font "Arial" ))
-		(text "IR[3..0]" (rect 21 107 58 118)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112)(line_width 3))
+		(text "IR[3..0]" (rect 21 123 58 134)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port
 		(pt 208 32)
@@ -1168,10 +1191,6 @@ refer to the applicable agreement for further details.
 	(pt 528 472)
 )
 (connector
-	(pt 528 472)
-	(pt 528 176)
-)
-(connector
 	(pt 520 112)
 	(pt 520 8)
 	(bus)
@@ -1296,12 +1315,6 @@ refer to the applicable agreement for further details.
 	(pt 632 392)
 )
 (connector
-	(text "r[15..12]" (rect 586 392 628 405)(font "Intel Clear" ))
-	(pt 592 408)
-	(pt 632 408)
-	(bus)
-)
-(connector
 	(pt 464 328)
 	(pt 472 328)
 )
@@ -1376,11 +1389,6 @@ refer to the applicable agreement for further details.
 (connector
 	(pt 624 200)
 	(pt 592 200)
-	(bus)
-)
-(connector
-	(pt 592 264)
-	(pt 592 408)
 	(bus)
 )
 (connector
@@ -1482,12 +1490,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(text "r[15..0]" (rect 576 449 589 483)(font "Intel Clear" )(vertical))
-	(pt 592 408)
-	(pt 592 488)
-	(bus)
-)
-(connector
 	(text "r[15..0]" (rect 1146 304 1180 317)(font "Intel Clear" ))
 	(pt 1136 320)
 	(pt 1232 320)
@@ -1513,8 +1515,40 @@ refer to the applicable agreement for further details.
 	(pt 544 544)
 	(pt 544 688)
 )
+(connector
+	(text "r[15..12]" (rect 586 408 628 421)(font "Intel Clear" ))
+	(pt 632 424)
+	(pt 592 424)
+	(bus)
+)
+(connector
+	(pt 592 264)
+	(pt 592 424)
+	(bus)
+)
+(connector
+	(text "r[15..0]" (rect 576 449 589 483)(font "Intel Clear" )(vertical))
+	(pt 592 424)
+	(pt 592 488)
+	(bus)
+)
+(connector
+	(pt 632 408)
+	(pt 528 408)
+)
+(connector
+	(pt 528 472)
+	(pt 528 408)
+)
+(connector
+	(pt 528 408)
+	(pt 528 176)
+)
+(connector
+	(pt 936 504)
+	(pt 840 504)
+)
 (junction (pt 592 264))
-(junction (pt 592 408))
 (junction (pt 528 472))
 (junction (pt 1120 224))
 (junction (pt 520 112))
@@ -1530,3 +1564,5 @@ refer to the applicable agreement for further details.
 (junction (pt 576 704))
 (junction (pt 544 344))
 (junction (pt 544 544))
+(junction (pt 592 424))
+(junction (pt 528 408))
