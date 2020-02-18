@@ -79,8 +79,8 @@ module decode(input FETCH,             // first cycle of state machine
     assign ACC_SHIFTIN_p   = ASR & FETCH & MI;
     assign ACC_SHIFTIN     = ACC_SHIFTIN_np | ACC_SHIFTIN_p & BeenPipelined;
     // assign ACC_SHIFTIN  = 0;
-    assign MUX3_useAllBits_np = LDA & EXEC2 | LDA & EXEC2 | LSR & EXEC1 | ASR & EXEC1;
-    assign MUX3_useAllBits_p  = LDA & EXEC1 | LDA & EXEC1 | LSR & FETCH | ASR & FETCH;
+    assign MUX3_useAllBits_np = LDA & EXEC2 | LSR & EXEC1 | ASR & EXEC1;
+    assign MUX3_useAllBits_p  = LDA & EXEC1 | LSR & FETCH | ASR & FETCH;
     assign MUX3_useAllBits    = MUX3_useAllBits_np | MUX3_useAllBits_p & BeenPipelined;
     // debug for the value of pipeline state
     assign pipeline_State = BeenPipelined;
