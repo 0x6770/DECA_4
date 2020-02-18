@@ -61,9 +61,16 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 112)
 		(input)
+		(text "clk" (rect 0 0 10 12)(font "Arial" ))
+		(text "clk" (rect 21 107 31 119)(font "Arial" ))
+		(line (pt 0 112)(pt 16 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
 		(text "IR[3..0]" (rect 0 0 30 12)(font "Arial" ))
-		(text "IR[3..0]" (rect 21 107 51 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112)(line_width 3))
+		(text "IR[3..0]" (rect 21 123 51 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 3))
 	)
 	(port
 		(pt 208 32)
@@ -141,6 +148,13 @@ refer to the applicable agreement for further details.
 		(text "MUX3_useAllBits" (rect 0 0 70 12)(font "Arial" ))
 		(text "MUX3_useAllBits" (rect 117 187 187 199)(font "Arial" ))
 		(line (pt 208 192)(pt 192 192)(line_width 1))
+	)
+	(port
+		(pt 208 208)
+		(output)
+		(text "pipeline_State" (rect 0 0 53 12)(font "Arial" ))
+		(text "pipeline_State" (rect 134 203 187 215)(font "Arial" ))
+		(line (pt 208 208)(pt 192 208)(line_width 1))
 	)
 	(drawing
 		(rectangle (rect 16 16 192 224)(line_width 1))
