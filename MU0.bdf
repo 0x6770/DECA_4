@@ -53,7 +53,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 536 160 712 176)
+	(rect 528 176 704 192)
 	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
 	(text "fetch" (rect 90 0 113 13)(font "Intel Clear" ))
 	(pt 0 8)
@@ -69,7 +69,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 536 176 712 192)
+	(rect 528 192 704 208)
 	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
 	(text "exec1" (rect 90 0 117 13)(font "Intel Clear" ))
 	(pt 0 8)
@@ -85,7 +85,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 536 192 712 208)
+	(rect 528 208 704 224)
 	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
 	(text "cnt_en" (rect 90 0 123 13)(font "Intel Clear" ))
 	(pt 0 8)
@@ -101,7 +101,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 536 208 712 224)
+	(rect 528 224 704 240)
 	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
 	(text "exec2" (rect 90 0 117 13)(font "Intel Clear" ))
 	(pt 0 8)
@@ -120,22 +120,6 @@ refer to the applicable agreement for further details.
 	(rect 536 256 712 272)
 	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
 	(text "pc[11..0]" (rect 90 0 131 13)(font "Intel Clear" ))
-	(pt 0 8)
-	(drawing
-		(line (pt 0 8)(pt 52 8))
-		(line (pt 52 4)(pt 78 4))
-		(line (pt 52 12)(pt 78 12))
-		(line (pt 52 12)(pt 52 4))
-		(line (pt 78 4)(pt 82 8))
-		(line (pt 82 8)(pt 78 12))
-		(line (pt 78 12)(pt 82 8))
-	)
-)
-(pin
-	(output)
-	(rect 536 272 712 288)
-	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
-	(text "NS[2..0]" (rect 90 0 126 13)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -197,7 +181,7 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 536 224 712 240)
+	(rect 528 160 704 176)
 	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
 	(text "address[11..0]" (rect 90 0 159 11)(font "Arial" ))
 	(pt 0 8)
@@ -261,9 +245,41 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
+	(rect 536 272 712 288)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "S[2..0]" (rect 90 0 118 13)(font "Intel Clear" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
 	(rect 536 416 712 432)
 	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
-	(text "pipeline_state" (rect 90 0 160 11)(font "Arial" ))
+	(text "BeenPipeline" (rect 90 0 158 11)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 536 432 712 448)
+	(text "OUTPUT" (rect 1 0 41 10)(font "Arial" (font_size 6)))
+	(text "canPipeline" (rect 90 0 150 11)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -361,9 +377,9 @@ refer to the applicable agreement for further details.
 	)
 )
 (symbol
-	(rect 272 136 512 456)
+	(rect 272 136 512 488)
 	(text "control_path2" (rect 5 0 91 15)(font "Intel Clear" (font_size 8)))
-	(text "inst" (rect 8 303 29 316)(font "Intel Clear" ))
+	(text "inst" (rect 8 335 29 348)(font "Intel Clear" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -402,37 +418,37 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 240 32)
 		(output)
-		(text "fetch" (rect 0 0 31 15)(font "Intel Clear" (font_size 8)))
-		(text "fetch" (rect 188 27 219 42)(font "Intel Clear" (font_size 8)))
-		(line (pt 240 32)(pt 224 32))
+		(text "address[11..0]" (rect 0 0 89 15)(font "Intel Clear" (font_size 8)))
+		(text "address[11..0]" (rect 130 27 219 42)(font "Intel Clear" (font_size 8)))
+		(line (pt 240 32)(pt 224 32)(line_width 3))
 	)
 	(port
 		(pt 240 48)
 		(output)
-		(text "exec1" (rect 0 0 36 15)(font "Intel Clear" (font_size 8)))
-		(text "exec1" (rect 183 43 219 58)(font "Intel Clear" (font_size 8)))
+		(text "fetch" (rect 0 0 31 15)(font "Intel Clear" (font_size 8)))
+		(text "fetch" (rect 188 43 219 58)(font "Intel Clear" (font_size 8)))
 		(line (pt 240 48)(pt 224 48))
 	)
 	(port
 		(pt 240 64)
 		(output)
-		(text "cnt_en" (rect 0 0 42 15)(font "Intel Clear" (font_size 8)))
-		(text "cnt_en" (rect 177 59 219 74)(font "Intel Clear" (font_size 8)))
+		(text "exec1" (rect 0 0 36 15)(font "Intel Clear" (font_size 8)))
+		(text "exec1" (rect 183 59 219 74)(font "Intel Clear" (font_size 8)))
 		(line (pt 240 64)(pt 224 64))
 	)
 	(port
 		(pt 240 80)
 		(output)
-		(text "exec2" (rect 0 0 36 15)(font "Intel Clear" (font_size 8)))
-		(text "exec2" (rect 183 75 219 90)(font "Intel Clear" (font_size 8)))
+		(text "cnt_en" (rect 0 0 42 15)(font "Intel Clear" (font_size 8)))
+		(text "cnt_en" (rect 177 75 219 90)(font "Intel Clear" (font_size 8)))
 		(line (pt 240 80)(pt 224 80))
 	)
 	(port
 		(pt 240 96)
 		(output)
-		(text "address[11..0]" (rect 0 0 89 15)(font "Intel Clear" (font_size 8)))
-		(text "address[11..0]" (rect 130 91 219 106)(font "Intel Clear" (font_size 8)))
-		(line (pt 240 96)(pt 224 96)(line_width 3))
+		(text "exec2" (rect 0 0 36 15)(font "Intel Clear" (font_size 8)))
+		(text "exec2" (rect 183 91 219 106)(font "Intel Clear" (font_size 8)))
+		(line (pt 240 96)(pt 224 96))
 	)
 	(port
 		(pt 240 112)
@@ -451,8 +467,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 240 144)
 		(output)
-		(text "N[2..0]" (rect 0 0 41 15)(font "Intel Clear" (font_size 8)))
-		(text "N[2..0]" (rect 178 139 219 154)(font "Intel Clear" (font_size 8)))
+		(text "S[2..0]" (rect 0 0 40 15)(font "Intel Clear" (font_size 8)))
+		(text "S[2..0]" (rect 179 139 219 154)(font "Intel Clear" (font_size 8)))
 		(line (pt 240 144)(pt 224 144)(line_width 3))
 	)
 	(port
@@ -514,12 +530,19 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 240 288)
 		(output)
-		(text "pipeline_state" (rect 0 0 89 15)(font "Intel Clear" (font_size 8)))
-		(text "pipeline_state" (rect 130 283 219 298)(font "Intel Clear" (font_size 8)))
+		(text "BeenPipeline" (rect 0 0 84 15)(font "Intel Clear" (font_size 8)))
+		(text "BeenPipeline" (rect 135 283 219 298)(font "Intel Clear" (font_size 8)))
 		(line (pt 240 288)(pt 224 288))
 	)
+	(port
+		(pt 240 304)
+		(output)
+		(text "canPipeline" (rect 0 0 74 15)(font "Intel Clear" (font_size 8)))
+		(text "canPipeline" (rect 145 299 219 314)(font "Intel Clear" (font_size 8)))
+		(line (pt 240 304)(pt 224 304))
+	)
 	(drawing
-		(rectangle (rect 16 16 224 304))
+		(rectangle (rect 16 16 224 336))
 	)
 )
 (connector
@@ -629,10 +652,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1016 184)
-	(pt 1016 480)
-)
-(connector
 	(pt 536 280)
 	(pt 512 280)
 	(bus)
@@ -656,33 +675,8 @@ refer to the applicable agreement for further details.
 	(pt 736 120)
 )
 (connector
-	(pt 1016 480)
-	(pt 208 480)
-)
-(connector
 	(pt 176 152)
 	(pt 208 152)
-)
-(connector
-	(pt 536 168)
-	(pt 512 168)
-)
-(connector
-	(pt 536 184)
-	(pt 512 184)
-)
-(connector
-	(pt 536 200)
-	(pt 512 200)
-)
-(connector
-	(pt 536 216)
-	(pt 512 216)
-)
-(connector
-	(pt 512 232)
-	(pt 536 232)
-	(bus)
 )
 (connector
 	(pt 224 120)
@@ -696,10 +690,6 @@ refer to the applicable agreement for further details.
 	(pt 240 96)
 	(pt 240 168)
 	(bus)
-)
-(connector
-	(pt 208 480)
-	(pt 208 216)
 )
 (connector
 	(pt 176 120)
@@ -719,28 +709,12 @@ refer to the applicable agreement for further details.
 	(pt 272 184)
 )
 (connector
-	(pt 208 216)
-	(pt 272 216)
-)
-(connector
 	(pt 224 232)
 	(pt 272 232)
 )
 (connector
-	(pt 1000 200)
-	(pt 1000 464)
-)
-(connector
 	(pt 272 200)
 	(pt 240 200)
-)
-(connector
-	(pt 1000 464)
-	(pt 240 464)
-)
-(connector
-	(pt 240 200)
-	(pt 240 464)
 )
 (connector
 	(pt 536 72)
@@ -763,27 +737,80 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 984 184)
-	(pt 1016 184)
+	(pt 512 424)
+	(pt 536 424)
 )
 (connector
-	(pt 1016 184)
+	(pt 272 216)
+	(pt 256 216)
+)
+(connector
+	(pt 512 184)
+	(pt 528 184)
+)
+(connector
+	(pt 512 200)
+	(pt 528 200)
+)
+(connector
+	(pt 512 216)
+	(pt 528 216)
+)
+(connector
+	(pt 512 168)
+	(pt 528 168)
+	(bus)
+)
+(connector
+	(pt 512 232)
+	(pt 528 232)
+)
+(connector
+	(pt 240 200)
+	(pt 240 520)
+)
+(connector
+	(pt 256 216)
+	(pt 256 504)
+)
+(connector
+	(pt 1000 184)
+	(pt 1000 504)
+)
+(connector
+	(pt 256 504)
+	(pt 1000 504)
+)
+(connector
+	(pt 1016 200)
+	(pt 1016 520)
+)
+(connector
+	(pt 240 520)
+	(pt 1016 520)
+)
+(connector
+	(pt 984 184)
+	(pt 1000 184)
+)
+(connector
+	(pt 1000 184)
 	(pt 1032 184)
 )
 (connector
 	(pt 984 200)
-	(pt 1000 200)
+	(pt 1016 200)
 )
 (connector
-	(pt 1000 200)
+	(pt 1016 200)
 	(pt 1032 200)
 )
 (connector
-	(pt 512 424)
-	(pt 536 424)
+	(pt 536 440)
+	(pt 512 440)
 )
 (junction (pt 736 248))
 (junction (pt 224 120))
 (junction (pt 520 96))
-(junction (pt 1016 184))
-(junction (pt 1000 200))
+(junction (pt 1000 184))
+(junction (pt 1016 200))
