@@ -17,8 +17,7 @@ module decode(input FETCH,                // first cycle of state machine
               output ADDSUB,              // 1 for add, 0 for sub
               output MUX3_useAllBits,     // whether all 16bits from RAM need to be loaded to ACC
               output BeenPipelined_state,
-              output canPipeline_state
-              );
+              output canPipeline_state);
     //* assign value for opcode
     assign LDA = !IR[3] & !IR[2] & !IR[1] & !IR[0];
     assign STA = !IR[3] & !IR[2] & !IR[1] & IR[0];
@@ -33,8 +32,8 @@ module decode(input FETCH,                // first cycle of state machine
     assign ASR = IR[3] & !IR[2] & IR[1] & IR[0];
     // assign pipeline related var
     // assign canPipeline_np = LDA & EXEC2 | LDI & EXEC1 | ADD & EXEC2 | SUB & EXEC2 | LSR & EXEC1 | ASR & EXEC1;
-    assign canPipeline_p     = LDA & FETCH | ADD & EXEC1 | SUB & EXEC1 | STA & EXEC1;
-    assign canPipeline_np    = LDA & EXEC1 | LDI & FETCH | ADD & EXEC1 | ADD & EXEC1 | SUB & EXEC1 | LSR & FETCH | LSR & EXEC1 | ASR & FETCH;
+    assign canPipeline_p     = LDA & EXEC1 | ADD & EXEC1 | SUB & EXEC1 | LSR & FETCH | ASR & FETCH;
+    assign canPipeline_np    = LDA & EXEC2 | ADD & EXEC2 | SUB & EXEC2 | LSR & EXEC1 | ASR & EXEC1;
     // assign canPipeline    = BeenPipelined ?  canPipeline_p : canPipeline_np;
     assign canPipeline       = BeenPipelined ? canPipeline_p : canPipeline_np;
     // assign BeenPipelined  = 0;
@@ -63,8 +62,8 @@ module decode(input FETCH,                // first cycle of state machine
     assign PC_sload_p  = JMP & FETCH | JMI & FETCH & MI | JEQ & FETCH & EQ;
     assign PC_sload    = BeenPipelined ?  PC_sload_p : PC_sload_np;
     
-    assign PC_cnt_en_np = LDA & EXEC2 | STA & EXEC1 | ADD & EXEC2 | SUB & EXEC2 | JMI & EXEC1 & !MI | JEQ & EXEC1 & !EQ | LDI & EXEC1 | LSR & EXEC1 | ASR & EXEC1;
-    assign PC_cnt_en_p  = LDA & EXEC1 | STA & FETCH | ADD & EXEC1 | SUB & EXEC1 | JMI & FETCH & !MI | JEQ & FETCH & !EQ | LDI & FETCH | LSR & FETCH | ASR & FETCH;
+    assign PC_cnt_en_np = LDA & EXEC1 | STA & EXEC1 | ADD & EXEC2 | SUB & EXEC2 | JMI & EXEC1 & !MI | JEQ & EXEC1 & !EQ | LDI & EXEC1 | LSR & EXEC1 | ASR & EXEC1;
+    assign PC_cnt_en_p  = LDA & FETCH | STA & FETCH | ADD & EXEC1 | SUB & EXEC1 | JMI & FETCH & !MI | JEQ & FETCH & !EQ | LDI & FETCH | LSR & FETCH | ASR & FETCH;
     assign PC_cnt_en    = BeenPipelined ? PC_cnt_en_p : PC_cnt_en_np;
     
     assign ACC_EN_np = LDA & EXEC2 | ADD & EXEC2 | SUB & EXEC2 | LDI & EXEC1 | LSR & EXEC1 | ASR & EXEC1;
