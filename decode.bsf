@@ -20,9 +20,9 @@ refer to the applicable agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 224 256)
+	(rect 16 16 224 288)
 	(text "decode" (rect 5 0 33 12)(font "Arial" ))
-	(text "inst" (rect 8 224 20 236)(font "Arial" ))
+	(text "inst" (rect 8 256 20 268)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -64,6 +64,13 @@ refer to the applicable agreement for further details.
 		(text "IR[3..0]" (rect 0 0 30 12)(font "Arial" ))
 		(text "IR[3..0]" (rect 21 107 51 119)(font "Arial" ))
 		(line (pt 0 112)(pt 16 112)(line_width 3))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "clk" (rect 0 0 10 12)(font "Arial" ))
+		(text "clk" (rect 21 123 31 135)(font "Arial" ))
+		(line (pt 0 128)(pt 16 128)(line_width 1))
 	)
 	(port
 		(pt 208 32)
@@ -142,7 +149,28 @@ refer to the applicable agreement for further details.
 		(text "MUX3_useAllBits" (rect 117 187 187 199)(font "Arial" ))
 		(line (pt 208 192)(pt 192 192)(line_width 1))
 	)
+	(port
+		(pt 208 208)
+		(output)
+		(text "P" (rect 0 0 5 12)(font "Arial" ))
+		(text "P" (rect 182 203 187 215)(font "Arial" ))
+		(line (pt 208 208)(pt 192 208)(line_width 1))
+	)
+	(port
+		(pt 208 224)
+		(output)
+		(text "afterE2" (rect 0 0 30 12)(font "Arial" ))
+		(text "afterE2" (rect 157 219 187 231)(font "Arial" ))
+		(line (pt 208 224)(pt 192 224)(line_width 1))
+	)
+	(port
+		(pt 208 240)
+		(output)
+		(text "TF" (rect 0 0 11 12)(font "Arial" ))
+		(text "TF" (rect 176 235 187 247)(font "Arial" ))
+		(line (pt 208 240)(pt 192 240)(line_width 1))
+	)
 	(drawing
-		(rectangle (rect 16 16 192 224)(line_width 1))
+		(rectangle (rect 16 16 192 256)(line_width 1))
 	)
 )
