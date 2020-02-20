@@ -18,9 +18,10 @@ module decode(input FETCH,
               output MUX3_useAllBits,
               output P,
               output afterE2,
-              output TF);
+              output TF,
+              output AF);
     
-    assign P = LDI | LDA | ADD | SUB | LSR;
+    assign P = LDI | LDA | ADD | SUB | LSR | ASR;
     
     assign JMP = !IR[3] & IR[2] & !IR[1] & !IR[0];      //* 2
     assign JEQ = !IR[3] & IR[2] & IR[1] & !IR[0];       //* 2
@@ -40,6 +41,11 @@ module decode(input FETCH,
     .clk (clk),
     .Q (afterE2)
     );
+    RisingEdge_DFF fetchState(
+    .D (FETCH),
+    .clk (clk),
+    .Q (AF)
+    );
     
     assign TF = afterE2 & EXEC1 & (LDI | STA | JMP | JMI | JEQ);
     
@@ -49,7 +55,7 @@ module decode(input FETCH,
     assign MUX3            = LDA & EXEC2 | LDI & EXEC1;
     assign PC_sload        = JMP & EXEC1 | JMI & EXEC1 & MI | JEQ & EXEC1 & EQ;
     // assign PC_cnt_en    = LDA & EXEC2 | STA & EXEC1 | ADD & EXEC2 | SUB & EXEC2 | JMI & EXEC1 & !MI | JEQ & EXEC1 & !EQ | LDI & EXEC1 | LSR & EXEC1 | ASR & EXEC1;
-    assign PC_cnt_en       = FETCH | EXEC1 & (LDA | ADD | SUB) | afterE2 & EXEC1 & (LDI | STA);
+    assign PC_cnt_en       = FETCH & (!JMP | !JMI | !JEQ) | EXEC1 & (LDA | ADD | SUB) & !AF | afterE2 & EXEC1 & (LDI | STA);
     assign ACC_EN          = LDA & EXEC2 | ADD & EXEC2 | SUB & EXEC2 | LDI & EXEC1 | LSR & EXEC1 | ASR & EXEC1;
     assign ACC_LOAD        = LDA & EXEC2 | ADD & EXEC2 | SUB & EXEC2 | LDI & EXEC1;
     assign ADDSUB          = ADD & EXEC2;
