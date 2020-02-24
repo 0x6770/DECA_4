@@ -14,7 +14,9 @@ module decode(input FETCH,
               output ACC_LOAD,
               output ACC_SHIFTIN,
               output ADDSUB,
-              output MUX3_useAllBits);
+              output MUX3_useAllBits,
+	      output P
+);
     
     assign LDA = !IR[3] & !IR[2] & !IR[1] & !IR[0];
     assign STA = !IR[3] & !IR[2] & !IR[1] & IR[0];
@@ -27,7 +29,9 @@ module decode(input FETCH,
     assign LDI = IR[3] & !IR[2] & !IR[1] & !IR[0];
     assign LSR = IR[3] & !IR[2] & IR[1] & !IR[0];
     assign ASR = IR[3] & !IR[2] & IR[1] & IR[0];
-    
+
+    assign P 		   = LDA | LDI | ADD | SUB | LSR | ASR; 
+
     assign EXTRA           = LDA & EXEC1 | ADD & EXEC1 | SUB & EXEC1;
     assign Wren            = STA & EXEC1;
     assign MUX1            = LDA & EXEC1 | STA & EXEC1 | ADD & EXEC1 | SUB & EXEC1;

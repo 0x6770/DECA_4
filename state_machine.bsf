@@ -33,9 +33,16 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
+		(text "P" (rect 0 0 5 12)(font "Arial" ))
+		(text "P" (rect 21 43 26 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 1))
+	)
+	(port
+		(pt 0 64)
+		(input)
 		(text "s[2..0]" (rect 0 0 24 12)(font "Arial" ))
-		(text "s[2..0]" (rect 21 43 45 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
+		(text "s[2..0]" (rect 21 59 45 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
 		(pt 168 32)
