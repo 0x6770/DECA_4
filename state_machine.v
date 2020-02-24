@@ -7,8 +7,8 @@ module state_machine(input EXTRA,
                      input [2:0] s);
 
     assign N[2]  = 0;
-    assign N[1]  = !s[2] & !s[1] & s[0] & EXTRA;
-    assign N[0]  = (!s[2] & !s[1] & !s[0]) | (!s[2] & !s[1] & s[0] & !EXTRA & P) | (!s[2] & s[1] & !s[0] & EXTRA & P);
+    assign N[1]  = s[0] & EXTRA;
+    assign N[0]  = (!s[2] & !s[1] & !s[0]) | (s[0] & !EXTRA & P) | (s[1] & !EXTRA & P);
     assign FETCH = !s[2] & !s[1] & !s[0];
     assign EXEC1 = !s[2] & !s[1] & s[0];
     assign EXEC2 = !s[2] &  s[1] & !s[0];
