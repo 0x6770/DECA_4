@@ -15,9 +15,10 @@ module decode(input FETCH,
               output ACC_SHIFTIN,
               output ADDSUB,
               output MUX3_useAllBits,
-	      output P
+				  output P
 );
-    
+    wire LDA, LDI, ADD, SUB, LSR, ASR, JMI, JEQ;
+	 
     assign LDA = !IR[3] & !IR[2] & !IR[1] & !IR[0];
     assign STA = !IR[3] & !IR[2] & !IR[1] & IR[0];
     assign ADD = !IR[3] & !IR[2] & IR[1] & !IR[0];
@@ -30,7 +31,7 @@ module decode(input FETCH,
     assign LSR = IR[3] & !IR[2] & IR[1] & !IR[0];
     assign ASR = IR[3] & !IR[2] & IR[1] & IR[0];
 
-    assign P 		   = LDA | LDI | ADD | SUB | LSR | ASR | JMI & !MI | JEQ & !EQ; 
+    assign P 		   = LDA | LDI | ADD | SUB | LSR | ASR | JMP | JMI | JEQ;
 
     assign EXTRA           = LDA & EXEC1 | ADD & EXEC1 | SUB & EXEC1;
     assign Wren            = STA & EXEC1;
