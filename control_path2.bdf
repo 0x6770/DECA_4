@@ -1554,11 +1554,6 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 280 488)
-	(pt 280 360)
-	(bus)
-)
-(connector
 	(pt 296 360)
 	(pt 280 360)
 	(bus)
@@ -1614,12 +1609,6 @@ refer to the applicable agreement for further details.
 	(pt 840 408)
 )
 (connector
-	(text "Q[2..0]" (rect 1162 272 1191 285)(font "Intel Clear" ))
-	(pt 1152 288)
-	(pt 1232 288)
-	(bus)
-)
-(connector
 	(text "op[11..0]" (rect 1186 520 1228 533)(font "Intel Clear" ))
 	(pt 1176 536)
 	(pt 1232 536)
@@ -1671,6 +1660,18 @@ refer to the applicable agreement for further details.
 	(text "pcsload" (rect 1178 768 1218 781)(font "Intel Clear" ))
 	(pt 1168 784)
 	(pt 1232 784)
+)
+(connector
+	(text "s[2..0]" (rect 264 453 277 481)(font "Intel Clear" )(vertical))
+	(pt 280 488)
+	(pt 280 360)
+	(bus)
+)
+(connector
+	(text "s[2..0]" (rect 1162 272 1190 285)(font "Intel Clear" ))
+	(pt 1152 288)
+	(pt 1232 288)
+	(bus)
 )
 (junction (pt 592 264))
 (junction (pt 592 408))

@@ -15,7 +15,7 @@ module decode(input FETCH,
               output ACC_SHIFTIN,
               output ADDSUB,
               output MUX3_useAllBits,
-				  output P
+	      output P
 );
     wire LDA, LDI, ADD, SUB, LSR, ASR, JMI, JEQ;
 	 
