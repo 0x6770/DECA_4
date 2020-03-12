@@ -163,6 +163,13 @@ refer to the applicable agreement for further details.
 		(text "canPipeline_state" (rect 128 219 195 231)(font "Arial" ))
 		(line (pt 216 224)(pt 200 224)(line_width 1))
 	)
+	(port
+		(pt 208 208)
+		(output)
+		(text "P" (rect 0 0 5 12)(font "Arial" ))
+		(text "P" (rect 182 203 187 215)(font "Arial" ))
+		(line (pt 208 208)(pt 192 208)(line_width 1))
+	)
 	(drawing
 		(rectangle (rect 16 16 200 256)(line_width 1))
 	)
